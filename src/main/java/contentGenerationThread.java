@@ -13,13 +13,13 @@ public class contentGenerationThread extends Thread{
 
         String htpasswd = "";
         String html =
-                "<head><link rel=\"stylesheet\" href=\"style.css\"><link rel=\"preload\" href=\"Roboto-Black.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>   </head>" +
-                        "<body>" +
-                        "   <div>" +
-                        "       <table>" +
-                        "           <tr'>" +
-                        "               <th>List des agents</th>" +
-                        "           <tr>";
+                "<head>\n<link rel=\"stylesheet\" href=\"style.css\">\n<link rel=\"preload\" href=\"Roboto-Black.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n</head>\n" +
+                        "\n<body>" +
+                        "\n<div>" +
+                        "\n<table>" +
+                        "\n<tr'>" +
+                        "\n<th>List des agents</th>" +
+                        "\n<tr>";
 
         File fa= new File("www/index.html");
 
@@ -40,7 +40,7 @@ public class contentGenerationThread extends Thread{
                     if (Math.floorMod(cpt, 2) == 0){
                         backgroundColor = "#379EC1";
                     }
-                    html += "<tr style=''><td style='background-color:"+backgroundColor+"'><a href='./staff/"+line+".html'>"+line+"</a><td><tr>";
+                    html += "\n<tr style=''>\n<td style='background-color:"+backgroundColor+"'><a href='./staff/"+line+".html'>"+line+"</a><td>\n<tr>";
                     cpt+=1;
 
                     FileReader reader2 = new FileReader(filename);
@@ -80,24 +80,24 @@ public class contentGenerationThread extends Thread{
                     File fa2= new File("./www/staff/"+line+".html");
                     BufferedWriter bw2 = new BufferedWriter(new FileWriter(fa2));
 
-                    html2 = "<head><link rel=\"stylesheet\" href=\"../style.css\"></head>" +
-                            "<body>" +
-                                "<section>" +
-                                "<div class=\"div1\">" +
-                                    "<a href=\"../index.html\"><img style=\"width:2%; height\" src='"+pathReturn+"'></a>" +
-                                "</div>" +
-                                "<div class=\"div2\">" +
-                                    "<img style=\"background-color: rgba(255, 255, 128, 0);display:block;margin:auto;\" src='"+imageFile+"'>" +
-                                "</div>" +
-                                "<div class=\"div3\">" +agentNom+" "+agentPrenom;
+                    html2 = "<head>\n<link rel=\"stylesheet\" href=\"../style.css\">\n</head>\n" +
+                            "<body>\n" +
+                                "<section>\n" +
+                                "<div class=\"div1\">\n" +
+                                    "<a href=\"../index.html\"><img style=\"width:2%; height\" src='"+pathReturn+"'></a>\n" +
+                                "</div>\n" +
+                                "<div class=\"div2\">\n" +
+                                    "<img style=\"background-color: rgba(255, 255, 128, 0);display:block;margin:auto;\" src='"+imageFile+"'>\n" +
+                                "</div>\n" +
+                                "<div class=\"div3\">\n" +agentNom+" "+agentPrenom;
 
-                    html2 += "<div class=\"div4\"><table>";
+                    html2 += "<div class=\"div4\"><table>\n";
                     for (int i = 0; i < materiel.size(); i++) {
 
-                        html2+="<tr><td><input style=\"background: #00bf00;\"type=\"checkbox\" id='"+materiel.get(i)+"' name='"+materiel.get(i)+"' checked> <label for='"+materiel.get(i)+"' style=\"color:white;\">"+materiel.get(i)+"</label></td></tr>";
+                        html2+="\n<tr>\n<td><input style=\"background: #00bf00;\"type=\"checkbox\" id='"+materiel.get(i)+"' name='"+materiel.get(i)+"' checked> <label for='"+materiel.get(i)+"' style=\"color:white;\">"+materiel.get(i)+"</label></td>\n</tr>";
                     }
-                    html2 += "</table></div></div></section>";
-                    html2+="</body><footer></footer>";
+                    html2 += "\n</table>\n</div></div>\n</section>";
+                    html2+="\n</body>\n<footer></footer>";
 
                     bw2.write(html2);
                     bw2.close();
@@ -109,7 +109,7 @@ public class contentGenerationThread extends Thread{
             System.err.println(e);
         }
 
-        html += "</table></div><body><footer></footer>";
+        html += "</table>\n</div>\n<body>\n<footer></footer>";
 
         BufferedWriter bw = null;
         try {
