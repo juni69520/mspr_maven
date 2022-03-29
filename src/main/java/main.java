@@ -3,10 +3,6 @@ import java.nio.file.Paths;
 import java.io.IOException;
 
 public class main {
-    public static  String filename = "./www/agents.txt";
-    public static  String pathFiche = "./www/fiche_agent/";
-    public static  String pathCni = "../cni_agent/";
-
     public static void main(String[] args) throws IOException {
         Files.createDirectories(Paths.get("./www/staff/"));
 
